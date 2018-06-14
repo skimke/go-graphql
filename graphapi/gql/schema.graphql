@@ -1,0 +1,16 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Emojis {
+  text: String!
+}
+
+type Query {
+  emojisList: [Emojis!]!
+}
+
+type Mutation {
+  generateEmojis(times: String!) : [Emojis!]
+}
