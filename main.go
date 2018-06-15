@@ -4,11 +4,16 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/skimke/graphql-app/views"
+	"github.com/skimke/graphql-app/graphapi/gql"
+	"github.com/skimke/graphql-app/graphapi/resolvers"
+	"github.com/vektah/gqlgen/handler"
 )
 
 func main() {
-	http.HandleFunc("/graphiql", views.ServeGraphiQL)
+	schema := gql.MakeExecutableSchema(resolvers.New())
+
+	http.Handle("/query", handler.GraphQL(schema))
+	http.Handle("/graphiql", handler.Playground("Emojis", "/query"))
 
 	err := http.ListenAndServe(":9090", nil)
 
