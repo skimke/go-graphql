@@ -15,3 +15,12 @@ func getRandom() string {
 
 	return emojisList[n]
 }
+
+func createStringOfEmoji(times int) string {
+	emojiString := ""
+	for i := 0; i < times; i++ {
+		emojiString = emojiString + getRandom()
+	}
+
+	return emojiString
+}
