@@ -8,9 +8,8 @@ type Emojis {
 }
 
 type Query {
-  emojisList: [Emojis!]!
 }
 
 type Mutation {
-  generateEmojis(times: String!) : [Emojis!]
+  generateEmojis(times: Int!, length: Int!) : [Emojis!]
 }
