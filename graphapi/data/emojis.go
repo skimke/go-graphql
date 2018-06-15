@@ -16,9 +16,9 @@ func getRandom() string {
 	return emojisList[n]
 }
 
-func createStringOfEmoji(times int) string {
+func CreateStringOfEmojis(length int) string {
 	emojiString := ""
-	for i := 0; i < times; i++ {
+	for i := 0; i < length; i++ {
 		emojiString = emojiString + getRandom()
 	}
 
